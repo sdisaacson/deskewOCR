@@ -3,6 +3,7 @@
 FROM python:3.11-slim
 
 WORKDIR /app
+RUN mkdir ./images
 
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 poppler-utils tesseract-ocr libtesseract-dev -y \
     build-essential \
