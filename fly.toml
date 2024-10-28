@@ -6,8 +6,6 @@
 app = 'pdf2md'
 primary_region = 'bos'
 
-[build]
-
 [http_service]
   internal_port = 8501
   force_https = true
