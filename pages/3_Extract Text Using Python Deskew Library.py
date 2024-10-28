@@ -57,7 +57,6 @@ def main():
 
         # Perform OCR to extract text from the images with deskewing
         st.info("Performing OCR with deskewing, please wait...")
-        st.write("Image Paths:", image_paths)
         text = extract_text_from_images(image_paths)
 
         # Display the extracted text in the app
