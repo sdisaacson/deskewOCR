@@ -53,7 +53,7 @@ def main():
 
     if uploaded_file is not None:
         # Convert PDF to a list of images
-        images = convert_from_bytes(uploaded_file.read(), output_folder="./images", fmt="png")
+        images = convert_from_bytes(uploaded_file.read(), output_folder="./images2", fmt="png")
 
 
         # Perform OCR to extract text from the images with deskewing
