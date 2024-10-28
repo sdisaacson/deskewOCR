@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 from scipy.ndimage import rotate
 from PIL import Image
+from pathlib import Path
 
 def correct_skew(image, delta=1, limit=12):
     def determine_score(arr, angle):

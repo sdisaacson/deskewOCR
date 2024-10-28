@@ -1,8 +1,10 @@
+import os
 import streamlit as st
 from pdf2image import convert_from_bytes
 import pytesseract
 import cv2
 import numpy as np
+from pathlib import Path
 
 def deskew_image(image):
     # Convert the image to grayscale
@@ -53,8 +55,8 @@ def main():
 
     if uploaded_file is not None:
         # Convert PDF to a list of images
-        images = convert_from_bytes(uploaded_file.read(), output_folder="./images2", fmt="png")
-
+        output_folder="./images2"
+        images = convert_from_bytes(uploaded_file.read(), output_folder=output_folder, fmt="jpg")
 
         # Perform OCR to extract text from the images with deskewing
         st.info("Performing OCR with deskewing, please wait...")
@@ -63,7 +65,6 @@ def main():
         # Display the extracted text in the app
         st.subheader("Extracted Text")
         st.text_area("Text content", text, height=300)
-
         # Save the extracted text as a markdown file
         st.download_button(
             label="Download as Markdown",

@@ -5,3 +5,7 @@ opencv-python
 numpy
 scipy
 pillow
+pathlib
+deskew
+typing
+python-math
