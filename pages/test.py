@@ -4,7 +4,6 @@ import pytesseract
 import cv2
 import numpy as np
 from scipy.ndimage import rotate
-from PIL import Image
 
 def correct_skew(image, delta=1, limit=12):
     def determine_score(arr, angle):
@@ -43,8 +42,7 @@ def deskew_image(image):
     M = cv2.getRotationMatrix2D(center, best_angle, 1.0)
     deskewed = cv2.warpAffine(image_array, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
     
-    # Convert back to PIL format for pytesseract compatibility
-    deskewed_image = Image.fromarray(cv2.cvtColor(deskewed, cv2.COLOR_BGR2RGB))
+    deskewed_image = images.fromarray(cv2.cvtColor(deskewed, cv2.COLOR_BGR2RGB))
     return deskewed_image
 
 def extract_text_from_images(images):
@@ -61,14 +59,13 @@ def save_as_markdown(text, file_name="output.md"):
         md_file.write(text)
 
 def main():
-    st.set_page_config(page_title="Extracting Text from a PDF using EAST and Hough Lines")
-    st.title("Extracting Text Using EAST and Hough Lines - by Scott Isaacson")
-    
+    st.title("PDF to Markdown Converter with OCR and Deskewing")
+
     uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
 
     if uploaded_file is not None:
         # Convert PDF to a list of images
-        images = convert_from_bytes(uploaded_file.read(), fmt="png")
+        images = convert_from_bytes(uploaded_file.read(), output_folder="./images", fmt="png")
 
         # Perform OCR to extract text from the images with deskewing
         st.info("Performing OCR with deskewing, please wait...")

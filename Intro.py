@@ -4,15 +4,12 @@ import pytesseract
 import cv2
 import numpy as np
 
-st.set_page_config(
-    page_title="Hello",
-    page_icon="👋",
-)
+st.set_page_config(page_title="Intro",page_icon="👋")
 
 st.write("# Need to turn a crappy pdf into markdown text? 👋")
 
 st.markdown('''
-# Deskewing andExtracting Text from Crappy Scans
+# Deskewing and Extracting Text from Crappy Scans
 I recently had a need to extract the text from some pdf's. The content of thd PDF's were 
 basically black and white photographs of a typewritten document. The photographs themselves
 weren't straight at all.I figured it might be a fun project to attemp to have an app that could deskew the pdf's for me to allow the text to be extracted.

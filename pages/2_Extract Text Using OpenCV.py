@@ -47,8 +47,8 @@ def save_as_markdown(text, file_name="output.md"):
         md_file.write(text)
 
 def main():
-    st.title("PDF to Markdown Converter with OCR and Deskewing - by Scott Isaacson")
-
+    st.set_page_config(page_title="Extracting Text Using OpenCV Minimum Area Rectangle")
+    st.title("Extracting Text from a PDF Using OpenCV Minimum Area Rectangle - by Scott Isaacson")
     uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
 
     if uploaded_file is not None:
