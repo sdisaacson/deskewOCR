@@ -1,10 +1,12 @@
-# fly.toml app configuration file generated for pdf2md on 2024-10-27T21:12:02-04:00
+# fly.toml app configuration file generated for pdf2md on 2024-10-27T21:48:04-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = 'pdf2md'
 primary_region = 'bos'
+
+[build]
 
 [http_service]
   internal_port = 8501
